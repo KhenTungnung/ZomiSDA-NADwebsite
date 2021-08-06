@@ -14,7 +14,6 @@ const Nav = styled.nav`
   z-index: 100;
   position: fixed;
   width: 100%;
-  background: red;
 `
 const NavLink = css`
   color: #fff;
@@ -37,7 +36,7 @@ const MenuBars = styled(FaBars)`
     height: 40px;
     width: 40px;
     cursor: pointer;
-    postion: absolute;
+    position: absolute;
     top: 0;
     right: 0;
     transform: translate(-10%, -15%);
