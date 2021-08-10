@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import styled from 'styled-components'
-import {Button} from "./Button";
-import {AboutData, menuData} from "../data/MenuData";
-import AboutDropdown from "./Dropdowns/AboutDropdown";
+import {Button} from "../Button";
+import {LessonsandBibleStudyData, menuData} from "../../data/MenuData";
+import AboutDropdown from "../Dropdowns/AboutDropdown";
 import {css} from "styled-components/macro";
 import {Link} from "react-router-dom";
 import {FaBars} from "react-icons/fa";
@@ -70,16 +70,16 @@ const NavBtn = styled.div`
 `
 const AboutNav = styled.div`
   ${NavLink};
-  padding: 2rem 3rem;
+  padding: 5rem 10rem;
   align-content: center;
   margin-right: -48px;
 `
 const NavMenuOverallBar = styled.nav`
   ${Nav};
-  background-color: blue;
+  background-color: lightskyblue;
   height: 100px;
 `
-const About = ({toggle}) => {
+const LessonandBibleStudy = ({toggle}) => {
     const [dropdown, setDropdown] = useState(false);
     const closeMenu = () => setDropdown(false)
     const onMouseEnter = () => {
@@ -116,7 +116,7 @@ const About = ({toggle}) => {
             <AboutNav>
                 <MenuBars onClick={toggle}/>
                 <NavMenu>
-                    {AboutData.map((item, index) => (
+                    {LessonsandBibleStudyData.map((item, index) => (
                         <NavMenuLinks to={item.link} key={index} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} onClick={closeMenu}>
                             {item.title}
                         </NavMenuLinks>
@@ -128,4 +128,4 @@ const About = ({toggle}) => {
 
     )
 }
-export default About
+export default LessonandBibleStudy

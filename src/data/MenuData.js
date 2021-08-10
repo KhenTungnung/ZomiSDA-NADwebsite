@@ -7,11 +7,11 @@ export const menuData = [
     { title: 'Resources', link: '/resources'}
 ]
 export const AboutData = [
-    { title: 'Pawlpi Upna Guipi', link: '/pawlpiupna', className: 'aboutDropdownClass'},
-    { title: 'Hong piankhiatna', link: '/piankhiatna', className: 'aboutDropdownClass'},
-    { title: 'Zomi ngeina leh lai', link: '/zomingeina', className: 'aboutDropdownClass'}
+    { title: 'Pawlpi Upna Guipi', link: '/about/pawlpiupna', className: 'aboutDropdownClass'},
+    { title: 'Hong piankhiatna', link: '/about/piankhiatna', className: 'aboutDropdownClass'},
+    { title: 'Zomi ngeina leh lai', link: '/about/zomingeina', className: 'aboutDropdownClass'}
 ]
-export const LessonsandQuarterliesData = [
+export const LessonsandBibleStudyData = [
     { title: 'Sabbath School Lesson', link: '/sslesson'},
     { title: 'Mission News', link: '/missionnews'},
     { title: 'Bible Study', link: '/biblestudy'}

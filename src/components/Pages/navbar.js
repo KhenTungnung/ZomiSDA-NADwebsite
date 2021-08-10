@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
 import styled, {css} from 'styled-components/macro' /*added the macro to include the {css} */
 import {Link } from 'react-router-dom'
-import {menuData} from "../data/MenuData";
-import {Button} from "./Button";
+import {menuData} from "../../data/MenuData";
+import {Button} from "../Button";
 import {FaBars} from 'react-icons/fa'
-import AboutDropdown from "./Dropdowns/AboutDropdown"; /* imports the bars */
+import AboutDropdown from "../Dropdowns/AboutDropdown"; /* imports the bars */
 
 
 const Nav = styled.nav`
