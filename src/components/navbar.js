@@ -1,9 +1,10 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled, {css} from 'styled-components/macro' /*added the macro to include the {css} */
 import {Link } from 'react-router-dom'
 import {menuData} from "../data/MenuData";
 import {Button} from "./Button";
-import {FaBars} from 'react-icons/fa' /* imports the bars */
+import {FaBars} from 'react-icons/fa'
+import AboutDropdown from "./Dropdowns/AboutDropdown"; /* imports the bars */
 
 
 const Nav = styled.nav`
@@ -27,6 +28,7 @@ const NavLink = css`
 const Logo = styled(Link)`
   ${NavLink}; /* taken from the NavLink above. just adds the style onto here*/
   font-style: italic;
+  font-size: 30px;
 `
 const MenuBars = styled(FaBars)`
   display: none;
@@ -39,7 +41,7 @@ const MenuBars = styled(FaBars)`
     position: absolute;
     top: 0;
     right: 0;
-    transform: translate(-10%, -15%);
+    transform: translate(-10%, 10%);
   }
 `
 const NavMenu = styled.div`
@@ -53,6 +55,8 @@ const NavMenu = styled.div`
 `
 const NavMenuLinks = styled(Link)`
   ${NavLink};
+
+  &:hover{color: #000d1a;}
 `
 const NavBtn = styled.div`
   display: flex;
@@ -65,16 +69,28 @@ const NavBtn = styled.div`
 `
 
 const Navbar = ({toggle}) => {
+    const [dropdown, setDropdown] = useState(false);
+    const closeMenu = () => setDropdown(false)
+    const onMouseEnter = () => {
+        if(window.innerWidth < 960){setDropdown(true)}
+        else(setDropdown(true))
+    }
+    const onMouseLeave = () => {
+        if(window.innerWidth < 960){setDropdown(false)}
+        else(setDropdown(false))
+    }
+
     return (
         <Nav>
-            <Logo to="/">ELIXR</Logo>
+            <Logo to="/">ZOMI SDA NAD</Logo>
             <MenuBars onClick={toggle}/>
             <NavMenu>
                 {menuData.map((item, index) => (
-                    <NavMenuLinks to={item.link} key={index}>
+                    <NavMenuLinks to={item.link} key={index} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} onClick={closeMenu}>
                         {item.title}
                     </NavMenuLinks>
                 ))}
+                {dropdown && <AboutDropdown />}
             </NavMenu>
             <NavBtn>
                 <Button to="/contact" primary='true'>

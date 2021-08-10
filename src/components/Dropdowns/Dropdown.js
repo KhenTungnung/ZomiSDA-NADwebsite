@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import {Button} from './Button'
+import {Button} from '../Button'
 import {FaTimes} from "react-icons/all";
-import {menuData} from "../data/MenuData";
+import {menuData} from "../../data/MenuData";
 import {Link} from 'react-router-dom'
 
 const DropdownContainer = styled.div`
@@ -10,7 +10,7 @@ const DropdownContainer = styled.div`
   z-index: 999;
   width: 100%;
   height: 100%;
-  background: #cd853f;
+  background: lightskyblue;
   display: grid;
   align-items: center;
   left: 0;
@@ -61,7 +61,7 @@ const BtnWrap = styled.div`
   display: flex;
   justify-content: center;
 `
-
+/**Dropdown for the nav menus when the screen is resized to be smaller so the normal navmenus aren't seen */
 const Dropdown = ({isOpen, toggle}) => {
     return(
         <DropdownContainer isOpen={isOpen} onClick={toggle}>
