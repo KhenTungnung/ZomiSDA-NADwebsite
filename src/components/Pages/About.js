@@ -1,84 +1,9 @@
 import React, {useState} from 'react';
-import styled from 'styled-components'
 import {Button} from "../Button";
 import {AboutData, menuData} from "../../data/MenuData";
 import AboutDropdown from "../Dropdowns/AboutDropdown";
-import {css} from "styled-components/macro";
-import {Link} from "react-router-dom";
-import {FaBars} from "react-icons/fa";
+import {Nav, NavLink, NavMenu, NavMenuLinks, Logo, MenuBars, NavBtn, AboutNav, NavMenuOverallBar} from "./Style-Links";
 
-const Nav = styled.nav`
-  height: 60px;
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem 2rem;
-  z-index: 100;
-  position: fixed;
-  width: 100%;
-  //background-color: lightskyblue;
-`
-const NavLink = css`
-  color: #fff;
-  display: flex;
-  align-items: center;
-  padding: 0 1rem;
-  height: 100%;
-  cursor: pointer;
-  text-decoration: none;
-`
-const Logo = styled(Link)`
-  ${NavLink}; /* taken from the NavLink above. just adds the style onto here*/
-  font-style: italic;
-  font-size: 30px;
-`
-const MenuBars = styled(FaBars)`
-  display: none;
-  
-  @media screen and (max-width: 768px){
-    display: block;
-    height: 40px;
-    width: 40px;
-    cursor: pointer;
-    position: absolute;
-    top: 0;
-    right: 0;
-    transform: translate(-10%, 10%);
-  }
-`
-const NavMenu = styled.div`
-  display: flex;
-  align-items: center;
-  margin-right: -48px;
-  
-  @media screen and (max-width: 768px){
-    display: none;
-  }
-`
-const NavMenuLinks = styled(Link)`
-  ${NavLink};
-
-  &:hover{color: #000d1a;}
-`
-const NavBtn = styled.div`
-  display: flex;
-  align-items: center;
-  margin-right: 24px;
-
-  @media screen and (max-width: 768px){
-    display: none;
-  }
-`
-const AboutNav = styled.div`
-  ${NavLink};
-  padding: 5rem 10rem;
-  align-content: center;
-  margin-right: -48px;
-`
-const NavMenuOverallBar = styled.nav`
-  ${Nav};
-  background-color: lightskyblue;
-  height: 100px;
-`
 const About = ({toggle}) => {
     const [dropdown, setDropdown] = useState(false);
     const closeMenu = () => setDropdown(false)
