@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import {Button} from "../Button";
-import {AboutData, menuData} from "../../data/MenuData";
+import {ResourcesData} from "../../data/MenuData";
 import AboutDropdown from "../Dropdowns/AboutDropdown";
-import {Nav, NavLink, NavMenu, SubmenuNav, NavMenuOverallBar, SubMenuLinks} from "../Style-Links";
-import {Navbar} from './navbar'
+import {Nav, NavMenu, NavMenuLinks, Logo, MenuBars, NavBtn, SubmenuNav, NavMenuOverallBar, SubMenuLinks} from "../Style-Links";
+import {Navbar} from './navbar';
 
-const About = ({toggle}) => {
+const Resources = ({toggle}) => {
     const [dropdown, setDropdown] = useState(false);
     const closeMenu = () => setDropdown(false)
     const onMouseEnter = () => {
@@ -23,8 +23,9 @@ const About = ({toggle}) => {
             <Navbar/>
             {/** The about submenu */}
             <SubmenuNav>
+                <MenuBars onClick={toggle}/>
                 <NavMenu>
-                    {AboutData.map((item, index) => (
+                    {ResourcesData.map((item, index) => (
                         <SubMenuLinks to={item.link} key={index} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} onClick={closeMenu}>
                             {item.title}
                         </SubMenuLinks>
@@ -33,7 +34,6 @@ const About = ({toggle}) => {
                 </NavMenu>
             </SubmenuNav>
         </NavMenuOverallBar>
-
     )
 }
-export default About
+export default Resources

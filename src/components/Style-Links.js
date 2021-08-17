@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, {css} from 'styled-components/macro' /*added the macro to include the {css} */
-import {Button} from "../Button";
+import {Button} from "./Button";
 import {Link} from "react-router-dom";
 import {FaBars} from "react-icons/fa";
 
@@ -32,7 +32,7 @@ export const Logo = styled(Link)`
 export const MenuBars = styled(FaBars)`
   display: none;
   
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 1350px){
     display: block;
     height: 40px;
     width: 40px;
@@ -48,7 +48,7 @@ export const NavMenu = styled.div`
   align-items: center;
   margin-right: -48px;
   
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 1350px){
     display: none;
   }
 `
@@ -56,6 +56,11 @@ export const NavMenuLinks = styled(Link)`
   ${NavLink};
 
   &:hover{color: #000d1a;}
+`
+export const SubMenuLinks = styled(Link)`
+  ${NavLink};
+  
+  &:hover{color: #000d1a; border: 2px solid black; padding: 1rem 1rem;}
 `
 export const NavBtn = styled.div`
   display: flex;
@@ -66,11 +71,11 @@ export const NavBtn = styled.div`
     display: none;
   }
 `
-export const AboutNav = styled.div`
+export const SubmenuNav = styled.div`
   ${NavLink};
   padding: 5rem 10rem;
   align-content: center;
-  margin-right: -48px;
+  margin-left: 12.5rem;
 `
 export const NavMenuOverallBar = styled.nav`
   ${Nav};

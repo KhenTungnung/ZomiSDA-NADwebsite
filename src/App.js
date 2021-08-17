@@ -4,15 +4,16 @@ import GlobalStyle from "./globalStyles";
 import Hero from "./components/Pages/Hero";
 import {SliderDataOne} from "./data/SliderData";
 import Dropdown from "./components/Dropdowns/Dropdown";
-import InfoSection from "./components/InfoSection";
-import {InfoDataOne} from "./data/InfoData";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import About from "./components/Pages/About";
 import LessonandBibleStudy from "./components/Pages/Lesson&BibleStudy";
+import BooksAndArticles from "./components/Pages/BooksAndArticles";
+import Directory from "./components/Pages/Directory";
+import Resources from "./components/Pages/Resources";
+import Contact from "./components/Pages/Contact";
 
 
 function App() {
-
     const [isOpen, setIsOpen] = useState(false)
     const toggle = () => {
         setIsOpen(!isOpen)
@@ -28,6 +29,11 @@ function App() {
               {/**<InfoSection {...InfoDataOne}/>*/}
               <Route path='/about' exact component={() => <About toggle={toggle}/>}/>
               <Route path='/lessons&biblestudy' exact component={() => <LessonandBibleStudy toggle={toggle}/>}/>
+              <Route path='/books&articles' exact component={() => <BooksAndArticles toggle={toggle}/>}/>
+              <Route path='/directory' exact component={() => <Directory toggle={toggle}/>}/>
+              <Route path='/resources' exact component={() => <Resources toggle={toggle}/>}/>
+              <Route path='/contact' exact component={() => <Contact toggle={toggle}/>}/>
+
           </Switch>
       </Router>
   );

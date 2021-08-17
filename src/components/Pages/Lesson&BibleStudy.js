@@ -2,7 +2,8 @@ import React, {useState} from 'react';
 import {Button} from "../Button";
 import {LessonsandBibleStudyData, menuData} from "../../data/MenuData";
 import AboutDropdown from "../Dropdowns/AboutDropdown";
-import {Nav, NavMenu, NavMenuLinks, Logo, MenuBars, NavBtn, AboutNav, NavMenuOverallBar} from "./Style-Links";
+import {Nav, NavMenu, NavMenuLinks, Logo, MenuBars, NavBtn, SubmenuNav, NavMenuOverallBar, SubMenuLinks} from "../Style-Links";
+import {Navbar} from './navbar'
 
 const LessonandBibleStudy = ({toggle}) => {
     const [dropdown, setDropdown] = useState(false);
@@ -19,36 +20,18 @@ const LessonandBibleStudy = ({toggle}) => {
     return (
         <NavMenuOverallBar>
             {/** The main nav menu */}
-            <Nav>
-                <Logo to="/">ZOMI SDA NAD</Logo>
-                <MenuBars onClick={toggle}/>
-                <NavMenu>
-                    {menuData.map((item, index) => (
-                        <NavMenuLinks to={item.link} key={index} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} onClick={closeMenu}>
-                            {item.title}
-                        </NavMenuLinks>
-                    ))}
-                    {dropdown && <AboutDropdown />}
-                </NavMenu>
-                <NavBtn>
-                    <Button to="/contact" primary='true'>
-                        Contact Us
-                    </Button>
-                </NavBtn>
-
-            </Nav>
+            <Navbar/>
             {/** The about submenu */}
-            <AboutNav>
-                <MenuBars onClick={toggle}/>
+            <SubmenuNav>
                 <NavMenu>
                     {LessonsandBibleStudyData.map((item, index) => (
-                        <NavMenuLinks to={item.link} key={index} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} onClick={closeMenu}>
+                        <SubMenuLinks to={item.link} key={index} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} onClick={closeMenu}>
                             {item.title}
-                        </NavMenuLinks>
+                        </SubMenuLinks>
                     ))}
                     {dropdown && <AboutDropdown />}
                 </NavMenu>
-            </AboutNav>
+            </SubmenuNav>
         </NavMenuOverallBar>
 
     )

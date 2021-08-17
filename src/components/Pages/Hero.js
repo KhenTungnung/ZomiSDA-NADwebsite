@@ -150,6 +150,7 @@ const Hero = ({ slides }) => {      /* assign what slides is in App.js */
     if(!Array.isArray(slides) || slides.length <= 0){return null} /* if there is no data, then return null */
     return (
         <HeroSection>
+
             <HeroWrapper>
                 {slides.map((slide, index) => {
                     return (

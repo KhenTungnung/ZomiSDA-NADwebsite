@@ -1,11 +1,10 @@
 import React, {useState} from 'react'
-import styled, {css} from 'styled-components/macro' /*added the macro to include the {css} */
 import {menuData} from "../../data/MenuData";
 import {Button} from "../Button";
 import AboutDropdown from "../Dropdowns/AboutDropdown"; /* imports the bars */
-import {Nav, NavMenu, NavMenuLinks, Logo, NavBtn, MenuBars, AboutNav} from './Style-Links';
+import {Nav, NavMenu, NavMenuLinks, Logo, NavBtn, MenuBars, SubmenuNav} from '../Style-Links';
 
-const Navbar = ({toggle}) => {
+export const Navbar = ({toggle}) => {
     const [dropdown, setDropdown] = useState(false);
     const closeMenu = () => setDropdown(false)
     const onMouseEnter = () => {
