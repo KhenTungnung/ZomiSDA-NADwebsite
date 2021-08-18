@@ -2,12 +2,11 @@ import React, {useState} from 'react';
 import {Button} from "../Button";
 import {AboutData, menuData} from "../../data/MenuData";
 import AboutDropdown from "../Dropdowns/AboutDropdown";
-import {Nav, NavLink, NavMenu, SubmenuNav, NavMenuOverallBar, SubMenuLinks} from "../Style-Links";
+import {Nav, NavLink, NavMenu, SubmenuNav, NavMenuOverallBar, SubMenuLinks, Section, Container, ColumnRight, ColumnLeft} from "../Style-Links";
 import {Navbar} from './navbar'
-import styled from "styled-components";
-import PawlpiUpnaGuipi from "./PawlpiUpnaGuipi";
+import parse from 'html-react-parser'
 
-const About = ({toggle},{PawlpiUpnaGuipiData}) => {
+const PawlpiUpnaGuipi = ({content, toggle}) => {
     const [dropdown, setDropdown] = useState(false);
     const closeMenu = () => setDropdown(false)
     const onMouseEnter = () => {
@@ -18,7 +17,7 @@ const About = ({toggle},{PawlpiUpnaGuipiData}) => {
         if(window.innerWidth < 960){setDropdown(false)}
         else(setDropdown(false))
     }
-
+    content = content.replace(/([A-Z]{2,})/g, "$1".bold());
     return (
         <>
             <NavMenuOverallBar>
@@ -36,8 +35,10 @@ const About = ({toggle},{PawlpiUpnaGuipiData}) => {
                     </NavMenu>
                 </SubmenuNav>
             </NavMenuOverallBar>
+            <p style={{padding: '5rem', whiteSpace: 'pre-wrap'}}>
+                {parse(content)}     {/**The stupid freaking paragraph*/}
+            </p>
         </>
-
     )
 }
-export default About
+export default PawlpiUpnaGuipi
